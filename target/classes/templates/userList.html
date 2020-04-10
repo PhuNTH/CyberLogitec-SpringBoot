@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>USER LIST</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="css/util.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+}
+</style>
+</head>
+<body>
+
+	<div class="limiter">
+		<div class="container-login100"
+			style="background-image: url('images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-65 p-b-54">
+				<form class="login100-form validate-form" action="/add-user"
+					method="post">
+					<span class="login100-form-title p-b-49"> User List </span>
+
+					<table>
+						<tr>
+							<th>ID</th>
+							<th>Username</th>
+							<th>Email</th>
+							<th>Password</th>
+							<th>Edit</th>
+							<th>Delete</th>
+						</tr>
+						<tr th:each="data: ${users}">
+							<td th:text="${data.getID()}" />
+							<td th:text="${data.username}" />
+							<td th:text="${data.email}" />
+							<td th:text="${data.password}" />
+
+							<td><a th:href="@{/edit-user/{id}(id=${data.getID()})}">......</a></td>
+
+							<td><a th:href="@{/delete-user/{id}(id=${data.getID()})}">X</a></td>
+
+						</tr>
+					</table>
+
+					<br>
+					<div class="container-login100-form-btn p-l-55 p-r-55">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button type="submit" class="login100-form-btn">Add User
+							</button>
+						</div>
+					</div>
+
+					<div class="flex-col-c p-t-155">
+						<a href="/" class="txt2"> Logout </a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+	<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+
+</body>
+</html>

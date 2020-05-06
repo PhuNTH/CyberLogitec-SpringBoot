@@ -101,6 +101,6 @@ public class DemoController {
 		System.out.println("\n"+user.getEmail());
 		System.out.println("\n"+user.getPassword()+"\n");
 		userServiceImpl.insertUser(user);
-		return "redirect:/user-list";
+		return "redirect:/show-webix-table";
 	}
 }

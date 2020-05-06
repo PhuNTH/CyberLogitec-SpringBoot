@@ -4,7 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
- 
+import org.springframework.transaction.annotation.Transactional;
+
 import com.SpringBootApplication.model.User;
 import com.SpringBootApplication.mapper.UserMapper;
  
@@ -17,6 +18,7 @@ public class UserServiceImpl{
         userMapper.insertUser(user);
     }
  
+    @Transactional
     public void updateUser(User user) {
         userMapper.updateUser(user);
     }

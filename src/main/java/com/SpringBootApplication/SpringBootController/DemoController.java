@@ -43,13 +43,18 @@ public class DemoController {
 		System.out.println("\n"+user.getEmail());
 		System.out.println("\n"+user.getPassword()+"\n");
 		if(!listUser.isEmpty()) {
-			return "redirect:/user-list";
+			//return "redirect:/user-list";
+			return "redirect:/show-webix-table";
 		}
 		else {
 			System.out.println("Login Fail!!!!!");
 			return "redirect:/";
 		}
+	}
 
+	@RequestMapping(value = "/show-webix-table", method = RequestMethod.GET)
+	public String ShowWebixTable(){
+		return "webixTable";
 	}
 
 	@RequestMapping(value = "/register")
@@ -84,18 +89,18 @@ public class DemoController {
 		modelView.addObject("user",selectedUser);
 		return modelView;
 	}
-	
+
 	@PostMapping("/add-user")
 	public String AddUser() {
 		return "userAdd";
 	}
-	
+
 	@PostMapping("/check-add")
 	public String CheckAdd(User user) {
 		System.out.println("\n"+user.getUsername());
 		System.out.println("\n"+user.getEmail());
 		System.out.println("\n"+user.getPassword()+"\n");
 		userServiceImpl.insertUser(user);
-		return "redeirect:/user-list";
+		return "redirect:/user-list";
 	}
 }
